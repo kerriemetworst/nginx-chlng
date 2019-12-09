@@ -6,6 +6,7 @@ pipeline {
       steps {
         sh "./configure"
         sh "make"
+        junit '**/target/*.xml'
       }
     }
   }
