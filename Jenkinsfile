@@ -14,7 +14,7 @@ pipeline {
 
     stage('Build Docker Container')
       steps {
-        docker build -t .
+        docker build .
       }
 
     stage('archive'){
