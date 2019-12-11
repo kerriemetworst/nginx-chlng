@@ -17,12 +17,13 @@ pipeline {
         sh 'curl localhost -o $BUILD_TAG_{date}_nginx.out'
       }
     }
+  }
 
-    post {
-      always {
+  post {
+    always {
         archiveArtifacts artifacts: '**/target/*.jar', onlyIfSuccessful: true
       }
 
-    }
   }
+
 }
