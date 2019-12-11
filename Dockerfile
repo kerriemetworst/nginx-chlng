@@ -6,7 +6,7 @@ COPY ./ /home/endocode/
 
 WORKDIR /home/endocode
 
-RUN su -
+RUN whoami
 
 RUN make install
 
