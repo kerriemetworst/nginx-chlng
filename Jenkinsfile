@@ -21,7 +21,7 @@ pipeline {
 
   post {
     always {
-        archiveArtifacts artifacts: '**/target/*.jar', onlyIfSuccessful: true
+        archiveArtifacts artifacts: '*nginx.out', onlyIfSuccessful: false
       }
 
   }
