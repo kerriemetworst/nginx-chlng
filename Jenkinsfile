@@ -13,8 +13,9 @@ pipeline {
     stage('Build Docker Container'){
       steps {
         sh 'docker build -t nginx-chlng .'
-        sh 'docker run -v /usr/website:/usr/shr/nginx/html -p 8081:80 nginx-chlng'
-        sh 'curl localhost -o ${env.BUILD_TAG}_{date}_nginx.out'
+        sh 'docker run -v /usr/website:/usr/shr/nginx/html -p -d 8081:80 --name nginx-chlng nginx-chlng'
+        sh 'curl localhost -o ${env.BUILD_TAG}_nginx.out'
+        sh 'docker container stop nginx-chlng'
       }
     }
   }
