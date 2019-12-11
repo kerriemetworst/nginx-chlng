@@ -14,7 +14,7 @@ pipeline {
       steps {
         sh 'docker build -t nginx-chlng .'
         sh 'docker run --rm -v /usr/website:/usr/shr/nginx/html -d -p 8081:80 --name nginx-chlng nginx-chlng'
-        sh "curl localhost:8081 -o ${env.BUILD_TAG}_nginx.out"
+        sh "curl localhost:8081 -o ${env.BUILD_TAG}_${currentBuild.startTime}_nginx.out"
         sh 'docker container stop nginx-chlng'
       }
     }
@@ -22,7 +22,6 @@ pipeline {
 
   post {
     always {
-        sh 'docker container stop nginx-chlng'
         archiveArtifacts artifacts: '*nginx.out', onlyIfSuccessful: false
       }
 
