@@ -22,6 +22,7 @@ pipeline {
 
   post {
     always {
+        sh 'docker container stop nginx-chlng'
         archiveArtifacts artifacts: '*nginx.out', onlyIfSuccessful: false
       }
 
