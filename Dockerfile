@@ -6,9 +6,9 @@ COPY ./ /home/endocode/
 
 WORKDIR /home/endocode
 
-RUN ls
+RUN su -
 
-RUN sudo make install
+RUN make install
 
 EXPOSE 80
 
