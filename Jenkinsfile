@@ -5,6 +5,7 @@ pipeline {
     stage('Build nginx-chlng code'){
       steps {
         sh "./configure"
+        sh 'make'
         sh 'make check'
 
       }
