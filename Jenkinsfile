@@ -2,7 +2,7 @@ pipeline {
   agent any
 
   environment {
-    def DATESTAMP = sh(script: "echo 'date +%Y%m%d%H%M'")
+    def DATESTAMP = sh(script: "echo 'date +%Y%m%d%H%M'", returnStdout: true).trim()
   }
 
   stages{
