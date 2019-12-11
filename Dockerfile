@@ -8,7 +8,7 @@ WORKDIR /home/endocode
 
 RUN ls
 
-RUN make install
+RUN sudo make install
 
 EXPOSE 80
 
