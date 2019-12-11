@@ -6,14 +6,14 @@ pipeline {
       steps {
         sh "./configure"
         sh 'make'
-        
+
       }
     }
 
     stage('Build Docker Container'){
       steps {
-        sh 'docker build .'
-        sh 'docker run -v /usr/website:/usr/shr/nginx/html -p 80:8080'
+        docker.build("nginx-chlng:${env.BUILD_ID}")
+        sh 'docker run -v /usr/website:/usr/shr/nginx/html -p 80:8080 --name nginx-chlng nginx-chlng:${env.BUILD.ID}'
         sh 'curl localhost -o $BUILD_TAG_{date}_nginx.out'
       }
     }
