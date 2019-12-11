@@ -6,8 +6,7 @@ pipeline {
       steps {
         sh "./configure"
         sh 'make'
-        sh 'make check'
-
+        
       }
     }
 
