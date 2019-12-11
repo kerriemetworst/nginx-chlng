@@ -12,9 +12,9 @@ pipeline {
 
     stage('Build Docker Container'){
       steps {
-        docker build .
-        docker run -v /usr/website:/usr/shr/nginx/html -p 80:8080
-        curl localhost -o $BUILD_TAG_{date}_nginx.out
+        sh 'docker build .'
+        sh 'docker run -v /usr/website:/usr/shr/nginx/html -p 80:8080'
+        sh 'curl localhost -o $BUILD_TAG_{date}_nginx.out'
       }
     }
 
