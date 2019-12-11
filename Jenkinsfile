@@ -12,8 +12,8 @@ pipeline {
 
     stage('Build Docker Container'){
       steps {
-        docker.build("nginx-chlng:${env.BUILD_ID}")
-        sh 'docker run -v /usr/website:/usr/shr/nginx/html -p 80:8080 --name nginx-chlng nginx-chlng:${env.BUILD.ID}'
+        sh 'docker build -t nginx-chlng .'
+        sh 'docker run -v /usr/website:/usr/shr/nginx/html -p 80:8080 nginx-chlng'
         sh 'curl localhost -o $BUILD_TAG_{date}_nginx.out'
       }
     }
