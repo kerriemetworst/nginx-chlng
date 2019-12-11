@@ -1,6 +1,6 @@
 FROM ubuntu:18.04
 
-RUN apt-get update && apt-get -y install build-essential zlib1g libpcre3 openssl gcc libc6
+RUN apt-get update && apt-get -y install build-essential zlib1g libpcre3-dev openssl-dev gcc-dev libc6-dev
 
 RUN mkdir /home/endocode
 
