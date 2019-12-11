@@ -17,9 +17,6 @@ pipeline {
 * the desired nginx address with buildname and date is added as a steps
 
 */
-      }
-    }*/
-
     stage('Build Docker Container'){
       steps {
         sh 'docker build -t nginx-chlng .'
@@ -28,7 +25,7 @@ pipeline {
         sh 'docker container stop nginx-chlng'
       }
     }
-  }
+
 
 /* if steps conclude with succes export an artifact with the archiveArtifacts command, scooping the *nginx.out made with the curl command */
 
