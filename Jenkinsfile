@@ -6,9 +6,7 @@ pipeline {
       steps {
         sh "./configure"
         sh 'make check'
-        #junit 'reports/***/*.xml'
-        #sh "make"
-        #junit '**/target/*.xml'
+        
       }
     }
 
@@ -16,7 +14,7 @@ pipeline {
       steps {
         docker build .
         docker run -v /usr/website:/usr/shr/nginx/html -p 80:8080
-        curl localhost -o {buildname}_{date}_nginx.out
+        curl localhost -o $BUILD_TAG_{date}_nginx.out
       }
 
     stage('archive'){
