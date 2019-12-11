@@ -10,7 +10,7 @@ RUN whoami
 
 RUN make install
 
-RUN nginx -V
+RUN /usr/local/nginx/sbin/nginx -V
 
 EXPOSE 80
 
