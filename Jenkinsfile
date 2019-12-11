@@ -14,7 +14,7 @@ pipeline {
       steps {
         sh 'docker build -t nginx-chlng .'
         sh 'docker run -v /usr/website:/usr/shr/nginx/html -p 80:8080 nginx-chlng'
-        sh 'curl localhost -o $BUILD_TAG_{date}_nginx.out'
+        sh 'curl localhost -o ${env.BUILD_TAG}_{date}_nginx.out'
       }
     }
   }

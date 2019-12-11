@@ -2,7 +2,7 @@ FROM ubuntu:18.04
 
 RUN apt-get update && apt-get -y install build-essential
 RUN mkdir /home/endocode
-COPY ./ /home/endocode/
+COPY /var/lib/jenkins/workspace/nginx-chlng /home/endocode/
 
 WORKDIR /home/endocode
 
