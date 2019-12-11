@@ -1,6 +1,7 @@
 FROM ubuntu:18.04
 
-RUN apt-get update && apt-get -y install build-essential
+RUN apt-get update && apt-get -y install build-essential zlib pcre openssl gcc
+
 RUN mkdir /home/endocode
 COPY ./ /home/endocode/
 
