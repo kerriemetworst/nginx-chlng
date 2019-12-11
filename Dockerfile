@@ -10,6 +10,8 @@ RUN whoami
 
 RUN make install
 
+RUN nginx -V
+
 EXPOSE 80
 
 STOPSIGNAL SIGTERM
