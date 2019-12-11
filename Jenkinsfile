@@ -18,8 +18,8 @@ pipeline {
       }
     }
 
-    stage('archive'){
-      steps {
+    post {
+      always {
         archiveArtifacts artifacts: '**/target/*.jar', onlyIfSuccessful: true
       }
 
