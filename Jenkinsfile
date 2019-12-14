@@ -16,7 +16,8 @@ a timecode definable as you like */
 of the docker nginx Container
 * the -v option maps /usr/website to the standard root of the build nginx config.
 * -rm removes the made container when stopped in docker
-* the desired nginx address with buildname and date is added as a steps
+* the desired nginx address with buildname and date file for retreival is added as a curl step
+* the container is spun down 
 
 */
   stages{
